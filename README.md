@@ -1,1 +1,1 @@
-Game-Tutorial
+com.tutorial.main.Game-Tutorial
