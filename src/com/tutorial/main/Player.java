@@ -5,10 +5,16 @@ import java.util.Random;
 
 public class Player extends GameObject {
     Random r = new Random();
+    Handler handler;
 
-    public Player(int x, int y, ID id) {
+    public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
+        this.handler = handler;
 
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, 32, 32);
     }
 
     public void tick() {
