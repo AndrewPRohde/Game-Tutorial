@@ -42,7 +42,7 @@ public class Player extends GameObject {
 
     public void render(Graphics g) {
         g.setColor(Color.white);
-        g.fillRect(x, y, 32, 32);
+        g.fillOval(x, y, 32, 32);
 
     }
 }
