@@ -23,10 +23,25 @@ public class Player extends GameObject {
 
         x = Game.clamp(x, 0, Game.WIDTH - 48);
         y = Game.clamp(y, 0, Game.HEIGHT - 70);
+        collision();
+
+        handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.06, handler));
+    }
+
+    private void collision() {
+        for(int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+            if(tempObject.getId() == ID.BasicEnemy) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    // Collision logic
+                    HUD.HEALTH -= 2;
+                }
+            }
+        }
     }
 
     public void render(Graphics g) {
-        if(id == ID.Player) g.setColor(Color.white);
+        g.setColor(Color.white);
         g.fillRect(x, y, 32, 32);
 
     }
